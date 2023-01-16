@@ -7,6 +7,7 @@
                 <h1 class="mt-3">{{ $project->title }}</h1>
                 <div class="mt-3">
                     <h5>{{ $project->slug }}</h5>
+                    <h5> {{ $project->type }} </h5>
                     <p>{{ $project->description }}</p>
                 </div>
                 <p class="mt-3">{{ $project->content }}</p>

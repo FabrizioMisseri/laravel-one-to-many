@@ -49,9 +49,9 @@ class ProjectController extends Controller
             $path = Storage::put('projects_images', $request->cover_image);
             $data['cover_image'] = $path;
         }
+        // dd($data);
         Project::create($data);
         return redirect()->route('admin.projects.index')->with('message', 'Il project è sato creato con successo');
-        // 
     }
 
     /**
