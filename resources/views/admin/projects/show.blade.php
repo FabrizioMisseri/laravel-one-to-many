@@ -7,7 +7,9 @@
                 <h1 class="mt-3">{{ $project->title }}</h1>
                 <div class="mt-3">
                     <h5>{{ $project->slug }}</h5>
-                    <h5> {{ $project->type }} </h5>
+                    @if ($project->type)
+                        <h5> {{ $project->type->name }} </h5>
+                    @endif
                     <p>{{ $project->description }}</p>
                 </div>
                 <p class="mt-3">{{ $project->content }}</p>
