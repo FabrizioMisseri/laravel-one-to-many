@@ -16,4 +16,11 @@ class Project extends Model
     {
         return Str::slug($title, '-');
     }
+
+    // collegamenti tra tabelle
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }

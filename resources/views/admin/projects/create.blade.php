@@ -42,6 +42,23 @@
                     </div>
                 </div>
 
+                {{-- TYPES --}}
+                <div class="form-group col-8 row mb-2">
+                    <div class="col-2">
+                        <label for="type">types</label>
+                    </div>
+                    <div class="col-10">
+                        <select name="type_id" id="type" class="form-select">
+                            <option value="">Nessuna categoria</option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}" @selected(old('type_id') == $type->id)>{{ $type->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                {{-- / TYPES --}}
+
                 {{-- IMG --}}
                 <div class="col-8 row form-group mt-2">
                     <div class="col-2">

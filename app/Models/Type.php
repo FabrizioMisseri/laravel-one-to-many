@@ -16,4 +16,11 @@ class Type extends Model
     {
         return Str::slug($name, '-');
     }
+
+    // collegamenti tra tabelle
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
