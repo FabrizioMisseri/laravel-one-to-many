@@ -4,9 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
 use App\Models\Project;
 use App\Models\Type;
-use Illuminate\Http\Request;
 
 class TypeController extends Controller
 {
@@ -41,7 +41,6 @@ class TypeController extends Controller
     {
         $data = $request->validated();
         $data['slug'] = Type::generateSlug($data['name']);
-
         // dd($data);
         Type::create($data);
         return redirect()->route('admin.types.index');
@@ -65,9 +64,9 @@ class TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
@@ -77,9 +76,13 @@ class TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $data = $request->validated();
+        $data['slug'] = Type::generateSlug($data['name']);
+        // dd($data);
+        $type->update($data);
+        return redirect()->route('admin.types.index');
     }
 
     /**
